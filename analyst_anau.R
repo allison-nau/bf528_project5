@@ -14,11 +14,13 @@ diff_exp <- read.table("/projectnb2/bf528/users/dachshund/project5_anau/cuffdiff
 
 # sort the above data table so that the smallest q_values are at the top 
 # Could also consider Fold change and q-value
-diff_exp <- diff_exp[order(diff_exp$q_value),]
+diff_exp <- diff_exp[order(diff_exp$q_value, diff_exp$p_value, -abs(diff_exp$log2.fold_change.)),]
 
 # create a table with top ten differentially expressed genes, with their names, 
 # FPKM values, log fold change, p-value, and q-value
-diff_exp_top10 <- diff_exp[1:10, c("gene", "value_1", "value_2", "log2.fold_change.", "p_value", "q_value")]
+# Disregard inf fold change
+diff_exp_filter <- diff_exp[abs(diff_exp$log2.fold_change.)!=Inf,]
+diff_exp_top10 <- diff_exp_filter[1:10, c("gene", "value_1", "value_2", "log2.fold_change.", "p_value", "q_value")]
 write.csv(diff_exp_top10, file="diff_genes_top10.csv")
 
 # create a new data frame that contains only the genes where the last column named significant is equal to yes
