@@ -1,0 +1,26 @@
+#!/bin/bash -l
+
+#$ -P bf528
+#$ -cwd
+#$ -pe mpi_16_tasks_per_node 16
+
+#$ -o run_tophat_anau.stdout
+#$ -e run_tophat_anau.stderr
+
+# Module loads:
+module load cufflinks
+
+echo "Running job $JOB_ID"
+echo "Started: $(date +%F)"
+echo "Current time: $(date +%T)"
+echo "Running in directory: $PWD"
+
+
+ref1=/project/bf528/project_2/reference/annot/mm9.gtf
+ref2=/project/bf528/project_2/reference/mm9.fa
+
+
+cufflinks --compatible-hits-norm -G $ref1 -b $ref2 -u -o P0_1_cufflinks -p 16 P0_1_tophat/accepted_hits.bam
+
+echo "Job finished: $(date +%F)"
+echo "Current time: $(date +%T)"
