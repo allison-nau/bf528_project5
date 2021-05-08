@@ -8,6 +8,8 @@
 #$ -o run_tophat_anau.stdout
 #$ -e run_tophat_anau.stderr
 
+
+
 source /etc/bashrc
 module load cufflinks
 
@@ -30,3 +32,5 @@ cuffdiff -p 16 -L $LABEL -u -b $FASTA -o $OUTDIR $SAMPLEDIR/merged_asm/merged.gt
 
 echo "Job finished: $(date +%F)"
 echo "Current time: $(date +%T)"
+
+# Note: being appended to tophat stdout & stderr
