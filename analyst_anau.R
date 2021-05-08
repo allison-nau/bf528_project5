@@ -13,8 +13,8 @@ diff_exp <- read.table("/projectnb2/bf528/users/dachshund/project5_anau/cuffdiff
 #                             header = TRUE)
 
 # sort the above data table so that the smallest q_values are at the top 
+# Could also consider Fold change and q-value
 diff_exp <- diff_exp[order(diff_exp$q_value),]
-
 
 # create a table with top ten differentially expressed genes, with their names, 
 # FPKM values, log fold change, p-value, and q-value
