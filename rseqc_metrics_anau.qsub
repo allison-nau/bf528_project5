@@ -1,0 +1,39 @@
+#!/bin/bash -l
+
+#$ -P bf528
+#$ -cwd
+
+#$ -o rseqc_metrics_anau.stdout
+#$ -e rseqc_metrics_anau.stderr
+
+echo "Running job $JOB_ID"
+echo "Started: $(date +%F)"
+echo "Current time: $(date +%T)"
+echo "Running in directory: $PWD"
+
+#Module loading
+module load R
+module load python3
+module load samtools
+module load rseqc
+
+#commands to run
+samtools index accepted_hits.bam
+
+echo "Index accepted_hits finished: $(date +%F)"
+echo "Current time: $(date +%T)"
+
+geneBody_coverage.py -r /project/bf528/project_2/reference/annot/mm9.bed -i accepted_hits.bam -o hits_gB
+
+echo "geneBody finished: $(date +%F)"
+echo "Current time: $(date +%T)"
+
+inner_distance.py -r /project/bf528/project_2/reference/annot/mm9.bed -i accepted_hits.bam -o hits_id
+
+echo "inner_distance finished: $(date +%F)"
+echo "Current time: $(date +%T)"
+
+bam_stat.py -i accepted_hits.bam
+
+echo "Job finished: $(date +%F)"
+echo "Current time: $(date +%T)"
