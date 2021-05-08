@@ -2,12 +2,15 @@
 # Modified from Sheila Yee's script
 # Allison Nau
 
+# Scientific notations options:
+options(scipen=1)
+
 # load differential expression file analysis
-#diff_exp <- read.table("/projectnb2/bf528/users/dachshund/project5_anau/cuffdiff_out/gene_exp.diff",
-#                             header = TRUE)
-# TODO:
-diff_exp <- read.table("/projectnb/bf528/users/dachshund/project_2/project-2-project-2-dachsund/programmer/cuffdiff_out/gene_exp.diff",
+diff_exp <- read.table("/projectnb2/bf528/users/dachshund/project5_anau/cuffdiff_out/gene_exp.diff",
                              header = TRUE)
+# Old version:
+#diff_exp <- read.table("/projectnb/bf528/users/dachshund/project_2/project-2-project-2-dachsund/programmer/cuffdiff_out/gene_exp.diff",
+#                             header = TRUE)
 
 # sort the above data table so that the smallest q_values are at the top 
 diff_exp <- diff_exp[order(diff_exp$q_value),]
