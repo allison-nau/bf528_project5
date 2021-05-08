@@ -24,3 +24,5 @@ cufflinks --compatible-hits-norm -G $ref1 -b $ref2 -u -o P0_1_cufflinks -p 16 P0
 
 echo "Job finished: $(date +%F)"
 echo "Current time: $(date +%T)"
+
+# Note: being appended to tophat stdout & stderr
