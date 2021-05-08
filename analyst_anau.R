@@ -53,3 +53,7 @@ write.csv(sign_count, file="sign_gene_count.csv")
 # write the up and down regulated gene names to separate files
 write.csv(diff_exp_pos$gene, "up_regulated_genes.csv")
 write.csv(diff_exp_neg$gene, "down_regulated_genes.csv")
+
+# Determine how many equally significant genes there were:
+most_sign <- diff_exp[diff_exp$q_value==min(diff_exp$q_value),]
+dim(most_sign)
