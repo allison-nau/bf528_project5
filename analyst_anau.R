@@ -52,6 +52,14 @@ sign_count_neg
 sign_count <- data.frame(sign_count_neg, sign_count_pos)
 write.csv(sign_count, file="sign_gene_count.csv")
 
+# Get significant count at <0.01 level:
+sign_count_pos1 <- length(diff_exp_pos$gene_id[diff_exp_pos$q_value<0.01])
+sign_count_pos1
+sign_count_neg1 <- length(diff_exp_neg$gene_id[diff_exp_neg$q_value<0.01])
+sign_count_neg1
+sign_count1 <- data.frame(sign_count_neg, sign_count_pos)
+write.csv(sign_count1, file="sign_gene_count_0_01sig.csv")
+
 # write the up and down regulated gene names to separate files
 write.csv(diff_exp_pos$gene, "up_regulated_genes.csv")
 write.csv(diff_exp_neg$gene, "down_regulated_genes.csv")
