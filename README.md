@@ -4,9 +4,9 @@ This repository contains the scripts used to process and analyze the data to rep
 
 Baron, M., Veres, A., Wolock, S. L., Faust, A. L., Gaujoux, R., Vetere, A., Ryu, J. H., Wagner, B. K., Shen-Orr, S. S., Klein, A. M., Melton, D. A., & Yanai, I. (2016). A Single-Cell Transcriptomic Map of the Human and Mouse Pancreas Reveals Inter- and Intra-cell Population Structure. Cell systems, 3(4), 346–360.e4. https://doi.org/10.1016/j.cels.2016.08.011
 
-Written for Boston University class BF528
-Allison Nau
-Scripts modified from scripts previously written by Professor Adam Labadorf, Mae Rose Gott, and Sheila Yee.
+Written for Boston University class BF528  
+Allison Nau  
+Scripts modified from scripts previously written by Professor Adam Labadorf, Mae Rose Gott, and Sheila Yee.  
 
 # Repository Contents
 
